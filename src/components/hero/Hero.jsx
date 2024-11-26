@@ -39,25 +39,24 @@ const Navbar = () => {
 
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5 }
     }
   };
 
   return (
-    <motion.nav 
+    <motion.nav
       initial="hidden"
       animate="visible"
       variants={navVariants}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <motion.div 
+          <motion.div
             className="flex-shrink-0 font-bold text-2xl bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
@@ -95,7 +94,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <motion.div 
+      <motion.div
         className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
@@ -143,7 +142,7 @@ const HeroSection = () => {
   return (
     <div className="min-h-screen flex items-center bg-gradient-to-br from-purple-50 to-blue-50 pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 gap-8 items-center"
           variants={containerVariants}
           initial="hidden"
@@ -151,35 +150,35 @@ const HeroSection = () => {
         >
           {/* Text Content */}
           <motion.div className="space-y-6">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-gray-800"
               variants={itemVariants}
             >
               Hi, I'm <span className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">Ajay Kumar</span>
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl md:text-2xl text-gray-600"
               variants={itemVariants}
             >
               Full Stack Developer
             </motion.p>
-            
-            <motion.p 
+
+            <motion.p
               className="text-gray-600 max-w-lg"
               variants={itemVariants}
             >
-              Passionate about creating innovative web solutions using the MERN stack. 
-              Experienced in building responsive and user-friendly applications with 
+              Passionate about creating innovative web solutions using the MERN stack.
+              Experienced in building responsive and user-friendly applications with
               modern technologies.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="flex space-x-4"
               variants={itemVariants}
             >
               <motion.a
-                href="./ajay.pdf"
+                href="/ajay.pdf"
                 download
                 className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                 whileHover={{ scale: 1.05 }}
@@ -188,7 +187,8 @@ const HeroSection = () => {
                 <Download className="mr-2" size={20} />
                 Download Resume
               </motion.a>
-              
+
+
               <motion.div className="flex space-x-4">
                 <motion.a
                   href="https://github.com/ajay7906"
@@ -227,32 +227,32 @@ const HeroSection = () => {
             className="hidden md:block"
             variants={itemVariants}
           >
-            <motion.div 
+            <motion.div
               className="w-full h-96 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full opacity-20 blur-3xl absolute"
-              animate={{ 
+              animate={{
                 scale: [1, 1.1, 1],
                 rotate: [0, 5, -5, 0],
               }}
-              transition={{ 
+              transition={{
                 duration: 8,
                 repeat: Infinity,
                 repeatType: "reverse"
               }}
             />
-            <motion.div 
+            <motion.div
               className="relative z-10"
-              animate={{ 
+              animate={{
                 y: [0, -20, 0],
               }}
-              transition={{ 
+              transition={{
                 duration: 4,
                 repeat: Infinity,
                 repeatType: "reverse"
               }}
             >
-              <img 
-                src="/api/placeholder/500/500" 
-                alt="Developer" 
+              <img
+                src="/api/placeholder/500/500"
+                alt="Developer"
                 className="w-full h-auto rounded-lg shadow-xl"
               />
             </motion.div>
