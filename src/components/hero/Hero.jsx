@@ -179,7 +179,7 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               <motion.a
-                href="/resume.pdf"
+                href="./ajay.pdf"
                 download
                 className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                 whileHover={{ scale: 1.05 }}
