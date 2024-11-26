@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Download, Mail, ExternalLink } from 'lucide-react';
-
+import { Menu, X, Download, Mail, ExternalLink, Instagram, Twitter } from 'lucide-react';
+//import HeroImg from '../../assets/file.enc'
 // Custom Icon Components for missing icons
 const GitHubIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -218,6 +218,33 @@ const HeroSection = () => {
                 >
                   <Mail size={24} />
                 </motion.a>
+
+
+
+                <motion.a
+                  href="https://twitter.com/yourhandle" // Replace with your Twitter link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-gray-600 hover:text-purple-600"
+                >
+                  <Twitter size={24} />
+                </motion.a>
+                <motion.a
+                  href="https://instagram.com/yourhandle" // Replace with your Instagram link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-gray-600 hover:text-purple-600"
+                >
+                  <Instagram size={24} />
+                </motion.a>
+
+
+
+
               </motion.div>
             </motion.div>
           </motion.div>
@@ -251,7 +278,7 @@ const HeroSection = () => {
               }}
             >
               <img
-                src="/api/placeholder/500/500"
+                src=" "
                 alt="Developer"
                 className="w-full h-auto rounded-lg shadow-xl"
               />
