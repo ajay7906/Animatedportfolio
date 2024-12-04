@@ -307,11 +307,11 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
             className="col-span-1"
           >
-            <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
+            {/* <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
             <p className="text-gray-400 mb-4">
               Subscribe to receive updates about new projects and articles.
-            </p>
-            <form className="flex gap-2">
+            </p> */}
+            {/* <form className="flex gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -324,7 +324,7 @@ const Footer = () => {
               >
                 Subscribe
               </motion.button>
-            </form>
+            </form> */}
           </motion.div>
         </div>
 
