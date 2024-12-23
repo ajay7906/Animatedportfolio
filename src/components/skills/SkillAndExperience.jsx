@@ -1,12 +1,6 @@
 
 
 
-
-
-
-
-
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -18,20 +12,10 @@ import {
   Wrench, 
   Globe, 
   FileText,
-  Users
+  Users,
+  Cloud,
+  Shield
 } from 'lucide-react';
-
-// import { 
-//   Globe, 
-//   Book, 
-//   ShoppingBag, 
-//   Search, 
-//   Code, 
- 
-// } from 'lucide-react';
-
-
-
 
 
 
@@ -76,7 +60,15 @@ const techIcons = {
   git: <i clCodeassName="devicon-git-plain colored text-2xl" />,
   github: <i className="devicon-github-original colored text-2xl" />,
   vscode: <i className="devicon-vscode-plain colored text-2xl" />,
-  figma: <i className="devicon-figma-plain colored text-2xl" />
+  figma: <i className="devicon-figma-plain colored text-2xl" /> ,
+
+  //deployment 
+  nginx: <i className="devicon-nginx-original colored text-2xl" />,
+  linux: <i className="devicon-linux-plain colored text-2xl" />,
+  docker: <i className="devicon-docker-plain colored text-2xl" />,
+  aws: <i className="devicon-amazonwebservices-original colored text-2xl" />
+
+  
 };
 
 const SkillsSection = () => {
@@ -147,7 +139,39 @@ const SkillsSection = () => {
         { name: "Team Collaboration", icon: null, level: 85 },
         { name: "Data Structures & Algorithms", icon: null, level: 80 }
       ]
+    } ,
+    
+    
+
+    {
+      title: "Deployment & DevOps",
+      icon: <Cloud className="w-6 h-6" />,
+      skills: [
+        { name: "Nginx Server", icon: "nginx", level: 80 },
+        { name: "Linux Administration", icon: "linux", level: 75 },
+        { name: "Docker Containerization", icon: "docker", level: 70 },
+        { name: "AWS Services", icon: "aws", level: 65 },
+        { name: "SSL/TLS Certificates", icon: null, level: 75 },
+        { name: "VPS Management", icon: null, level: 70 },
+        { name: "CI/CD Pipelines", icon: null, level: 65 },
+        { name: "Server Security", icon: null, level: 75 }
+      ]
+    },
+    {
+      title: "Infrastructure Security",
+      icon: <Shield className="w-6 h-6" />,
+      skills: [
+        { name: "SSH & Key Management", icon: null, level: 80 },
+        { name: "Firewall Configuration", icon: null, level: 75 },
+        { name: "Domain Management", icon: null, level: 85 },
+        { name: "Load Balancing", icon: null, level: 70 }
+      ]
     }
+
+
+
+
+
   ];
 
   const filteredSkills = activeCategory === 'All' 
@@ -241,187 +265,6 @@ const SkillsSection = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const ProjectsSection = () => {
-//   const [filter, setFilter] = useState('all');
-  
-//   const projects = [
-//     {
-//       title: "AI Website Builder",
-//       description: "Platform for creating websites using MERN stack and Cloud AI API",
-//       image: "/api/placeholder/400/250",
-//       category: "main",
-//       technologies: ["React", "Node.js", "MySQL", "OpenAI API"],
-//       liveLink: "#",
-//       githubLink: "#",
-//       icon: <Globe />
-//     },
-//     {
-//       title: "Story Sharing Web App",
-//       description: "Platform for sharing stories with user registration and content management",
-//       image: "/api/placeholder/400/250",
-//       category: "main",
-//       technologies: ["React", "Node.js", "MongoDB", "CSS Modules"],
-//       liveLink: "https://swip-tory-six.vercel.app/",
-//       githubLink: "#",
-//       icon: <Book />
-//     },
-//     {
-//       title: "E-commerce Web App",
-//       description: "Full-featured e-commerce application with Stripe payment integration",
-//       image: "/api/placeholder/400/250",
-//       category: "main",
-//       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-//       liveLink: "https://65dcca3e9b6a8806754a8780--beautiful-pixie-3874.netlify.app/",
-//       githubLink: "#",
-//       icon: <ShoppingBag />
-//     },
-//     {
-//       title: "Quick Search Chrome Extension",
-//       description: "Chrome extension for efficient searching without opening new tabs",
-//       image: "/api/placeholder/400/250",
-//       category: "practice",
-//       technologies: ["HTML", "CSS", "JavaScript"],
-//       githubLink: "#",
-//       icon: <Search />
-//     },
-//     // Add more projects here...
-//   ];
-
-//   const filteredProjects = filter === 'all' 
-//     ? projects 
-//     : projects.filter(p => p.category === filter);
-
-//   return (
-//     <div className="w-full max-w-6xl mx-auto p-6">
-//       <motion.h2
-//         initial={{ opacity: 0, y: 20 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         className="text-3xl font-bold mb-8 text-center"
-//       >
-//         My Projects
-//       </motion.h2>
-
-//       <div className="flex justify-center gap-4 mb-8">
-//         {['all', 'main', 'practice'].map((category) => (
-//           <motion.button
-//             key={category}
-//             whileHover={{ scale: 1.05 }}
-//             whileTap={{ scale: 0.95 }}
-//             onClick={() => setFilter(category)}
-//             className={`px-4 py-2 rounded-full ${
-//               filter === category 
-//                 ? 'bg-blue-500 text-white' 
-//                 : 'bg-gray-200 text-gray-700'
-//             }`}
-//           >
-//             {category.charAt(0).toUpperCase() + category.slice(1)}
-//           </motion.button>
-//         ))}
-//       </div>
-
-//       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-//         {filteredProjects.map((project, idx) => (
-//           <motion.div
-//             key={project.title}
-//             initial={{ opacity: 0, y: 50 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ delay: idx * 0.1 }}
-//             whileHover={{ y: -10 }}
-//             className="bg-white rounded-lg shadow-lg overflow-hidden"
-//           >
-//             <div className="relative group">
-//               <img 
-//                 src={project.image} 
-//                 alt={project.title}
-//                 className="w-full h-48 object-cover"
-//               />
-//               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-//                 {project.liveLink && (
-//                   <a
-//                     href={project.liveLink}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="p-2 bg-white rounded-full hover:bg-blue-500 hover:text-white transition-colors"
-//                   >
-//                     <ExternalLink className="w-6 h-6" />
-//                   </a>
-//                 )}
-//                 {project.githubLink && (
-//                   <a
-//                     href={project.githubLink}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="p-2 bg-white rounded-full hover:bg-blue-500 hover:text-white transition-colors"
-//                   >
-//                     <Github className="w-6 h-6" />
-//                   </a>
-//                 )}
-//               </div>
-//             </div>
-
-//             <div className="p-6">
-//               <div className="flex items-center gap-2 mb-3">
-//                 {project.icon}
-//                 <h3 className="text-xl font-semibold">{project.title}</h3>
-//               </div>
-//               <p className="text-gray-600 mb-4">{project.description}</p>
-//               <div className="flex flex-wrap gap-2">
-//                 {project.technologies.map((tech) => (
-//                   <span
-//                     key={tech}
-//                     className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
-//                   >
-//                     {tech}
-//                   </span>
-//                 ))}
-//               </div>
-//             </div>
-//           </motion.div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-
-//import React, { useState } from 'react';
-//import { motion } from 'framer-motion';
-// import { 
-//   Globe, 
-//   Book, 
-//   ShoppingBag, 
-//   Search, 
-//   Code, 
-//   Smartphone, 
-//   Target 
-// } from 'lucide-react';
 
 const ProjectsSection = () => {
   const [filter, setFilter] = useState('all');
@@ -613,84 +456,6 @@ const ProjectsSection = () => {
     </div>
   );
 };
-
-// export default ProjectsSection;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
