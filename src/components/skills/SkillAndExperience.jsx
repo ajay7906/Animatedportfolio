@@ -14,7 +14,8 @@ import {
   FileText,
   Users,
   Cloud,
-  Shield
+  Shield,
+  MessageSquare
 } from 'lucide-react';
 
 
@@ -269,7 +270,28 @@ const SkillsSection = () => {
 const ProjectsSection = () => {
   const [filter, setFilter] = useState('all');
   
-  const projects = [
+  const projects = [ 
+
+
+
+
+
+    {
+      title: "Startup Website Platform",
+      description: "Feature-rich startup website with dual authentication, admin panels, payment integration, chatbot support using Dialogflow, and OpenAI-powered website creation",
+      image: "/api/placeholder/400/250",
+      category: "main",
+      technologies: ["React.js", "Node.js", "Express.js", "MySQL", "Tailwind CSS", "OpenAI", "Nginx", "Linux", "Dialogflow"],
+      liveLink: "#",
+      githubLink: "#",
+      icon: <MessageSquare />
+    },
+
+
+
+
+
+
     {
       title: "AI Website Builder",
       description: "AI-powered platform for creating and deploying one-page websites with a single click",
