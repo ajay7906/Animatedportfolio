@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Elements -->
+  <circle cx="400" cy="300" r="250" fill="#f3f4f6" opacity="0.5"/>
+  <path d="M300,200 Q400,100 500,200 T700,200" stroke="#8b5cf6" fill="none" strokeWidth="2" opacity="0.3"/>
+  <path d="M100,300 Q200,200 300,300 T500,300" stroke="#3b82f6" fill="none" strokeWidth="2" opacity="0.3"/>
+  
+  <!-- Desk -->
+  <rect x="200" y="350" width="400" height="20" fill="#4b5563" rx="5"/>
+  <rect x="250" y="370" width="300" height="10" fill="#374151" rx="2"/>
+  
+  <!-- Monitor -->
+  <rect x="300" y="200" width="200" height="140" fill="#1f2937" rx="10"/>
+  <rect x="310" y="210" width="180" height="120" fill="#0ea5e9" rx="5"/>
+  <!-- Code on Screen -->
+  <rect x="320" y="220" width="160" height="10" fill="#ffffff" opacity="0.7"/>
+  <rect x="320" y="240" width="140" height="10" fill="#ffffff" opacity="0.5"/>
+  <rect x="320" y="260" width="120" height="10" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Monitor Stand -->
+  <path d="M380,340 L420,340 L410,370 L390,370 Z" fill="#4b5563"/>
+  
+  <!-- Coffee Cup -->
+  <rect x="520" y="310" width="30" height="40" fill="#8b5cf6" rx="5"/>
+  <rect x="515" y="305" width="40" height="10" fill="#7c3aed" rx="5"/>
+  <path d="M550,320 Q560,335 550,350" stroke="#7c3aed" fill="none" strokeWidth="3"/>
+  
+  <!-- Plant -->
+  <rect x="220" y="300" width="30" height="50" fill="#059669" rx="5"/>
+  <circle cx="235" cy="290" r="15" fill="#34d399"/>
+  <circle cx="220" cy="285" r="10" fill="#34d399"/>
+  <circle cx="250" cy="285" r="10" fill="#34d399"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="600" cy="200" r="20" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="650" cy="250" r="15" fill="#3b82f6" opacity="0.2"/>
+  <circle cx="200" cy="220" r="25" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="150" cy="270" r="20" fill="#3b82f6" opacity="0.2"/>
+  
+  <!-- Code Symbols -->
+  <text x="180" y="180" fill="#8b5cf6" fontSize="24" opacity="0.4">{}</text>
+  <text x="580" y="160" fill="#3b82f6" fontSize="24" opacity="0.4">&lt;/&gt;</text>
+  <text x="150" y="350" fill="#8b5cf6" fontSize="24" opacity="0.4">()</text>
+  <text x="620" y="330" fill="#3b82f6" fontSize="24" opacity="0.4">[]</text>
+</svg>

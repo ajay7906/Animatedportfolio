@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Download, Mail, ExternalLink, Instagram, Twitter } from 'lucide-react';
+import ResumeFile from './ajay.pdf'
+import SvgImg from './img.svg'
 //import HeroImg from '../../assets/file.enc'
 // Custom Icon Components for missing icons
 const GitHubIcon = () => (
@@ -179,7 +181,7 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               <motion.a
-                href="/ajay.pdf"
+                href={ResumeFile} // Replace with your resume
                 download
                 className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                 whileHover={{ scale: 1.05 }}
@@ -279,7 +281,7 @@ const HeroSection = () => {
               }}
             >
               <img
-                src=" "
+                src={SvgImg}
                 alt="Developer"
                 className="w-full h-auto rounded-lg shadow-xl"
               />
