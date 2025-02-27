@@ -180,7 +180,7 @@ const SkillsSection = () => {
     : skillCategories.filter(category => category.title === activeCategory);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 relative">
+    <div className="w-full max-w-6xl mx-auto p-6 relative" id='skills'>
       {/* Animated Background */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -388,7 +388,7 @@ const ProjectsSection = () => {
     : projects.filter(p => p.category === filter);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6">
+    <div className="w-full max-w-6xl mx-auto p-6" id='projects'>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
