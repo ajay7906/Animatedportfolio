@@ -38,7 +38,7 @@ const Navbar = () => {
     { title: 'Projects', href: '#projects' },
     { title: 'Skills', href: '#skills' },
     { title: 'Contact', href: '#contact' },
-    { title: 'Blog', href: '#blog' },
+    { title: 'Blog', href: '/blogs' },
   ];
 
   const navVariants = {
