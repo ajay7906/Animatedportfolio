@@ -62,6 +62,8 @@ import AboutAndExperience from './components/aboutandexp/AboutAndExperience'
 import SkillAndExperience from './components/skills/SkillAndExperience'
 import ContactAndFooter from './components/contactAndFooter/ContactAndFooter'
 import Blog from './pages/BlogPages'
+import AdminLogin from './admin/AdminLogin'
+import AdminDashboard from './admin/dashboard/AdminDashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -82,7 +84,8 @@ function App() {
         {/* Portfolio page route */}
         {/* <Route path="/portfolio" element={<Portfolio/>}/> */}
         <Route path='/blogs' element={<Blog/>}/>
-        
+        <Route path='/adminLogin' element={<AdminLogin/>}/>
+        <Route path='/adminDashboard' element={<AdminDashboard/>}/>
         {/* Add more routes as needed */}
       </Routes>
     </Router>
