@@ -5,7 +5,12 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const errorHandler = require('./middlewares/error');
+// const errorHandler = require('./middlewares/error');
+
+
+//write code to connect to the database
+const connectDb = require('./config/db');
+connectDb();
 
 const app = express();
 
@@ -30,10 +35,16 @@ app.use(limiter);
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/admin', require('./routes/admin'));
+// app.use('/api/admin', require('./routes/admin'));
 
 // Error handling
-app.use(errorHandler);
+// app.use(errorHandler);
+//write error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

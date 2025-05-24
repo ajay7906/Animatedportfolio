@@ -72,6 +72,9 @@ const techIcons = {
   
 };
 
+
+
+
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
