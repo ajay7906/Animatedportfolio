@@ -29,7 +29,12 @@ import {
   ShoppingBag,
   Book,
   Smartphone ,
-  Target 
+  Target ,
+  Cpu,
+  Palette,
+  Rocket,
+
+
   
   
   
@@ -71,201 +76,208 @@ const techIcons = {
 
   
 };
-
-
-
-
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const skillCategories = [
     {
       title: "Programming Languages",
-      icon: <Code className="w-6 h-6" />,
+      icon: <Code className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "JavaScript", icon: "javascript", level: 90 },
-        { name: "TypeScript", icon: "typescript", level: 80 },
-        { name: "Java", icon: "java", level: 70 },
-        { name: "SQL", icon: "sql", level: 75 }
+        { name: "JavaScript", level: 90 },
+        { name: "TypeScript", level: 80 },
+        { name: "Java", level: 70 },
+        { name: "SQL", level: 75 }
       ]
     },
     {
       title: "Frontend Technologies",
-      icon: <Layout className="w-6 h-6" />,
+      icon: <Layout className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "React.js", icon: "react", level: 90 },
-        { name: "HTML5", icon: "html", level: 85 },
-        { name: "CSS3", icon: "css", level: 85 },
-        { name: "Tailwind CSS", icon: "tailwind", level: 80 },
-        { name: "Bootstrap", icon: "bootstrap", level: 75 }
+        { name: "React.js", level: 90 },
+        { name: "HTML", level: 85 },
+        { name: "CSS", level: 85 },
+        { name: "Tailwind CSS", level: 80 },
+        { name: "Bootstrap", level: 75 },
+        { name: "Material UI", level: 75 },
+        { name: "Redux", level: 80 }
       ]
     },
     {
       title: "Backend Technologies",
-      icon: <Server className="w-6 h-6" />,
+      icon: <Server className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "Node.js", icon: "nodejs", level: 85 },
-        { name: "Express.js", icon: "expressjs", level: 80 },
-        { name: "Nest.js", icon: "nestjs", level: 75 }
+        { name: "Node.js", level: 85 },
+        { name: "Express.js", level: 80 },
+        { name: "Nest.js", level: 75 },
+        { name: "REST API", level: 85 },
+        { name: "Socket.io", level: 80 }
       ]
     },
     {
       title: "Databases",
-      icon: <Database className="w-6 h-6" />,
+      icon: <Database className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "MongoDB", icon: "mongodb", level: 85 },
-        { name: "MySQL", icon: "mysql", level: 80 }
+        { name: "MongoDB", level: 85 },
+        { name: "Mongoose", level: 80 },
+        { name: "MySQL", level: 80 }
       ]
     },
     {
       title: "Tools & Platforms",
-      icon: <Wrench className="w-6 h-6" />,
+      icon: <Wrench className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "Git", icon: "git", level: 85 },
-        { name: "GitHub", icon: "github", level: 85 },
-        { name: "VS Code", icon: "vscode", level: 90 },
-        { name: "Figma", icon: "figma", level: 75 }
+        { name: "Git", level: 85 },
+        { name: "Github", level: 85 },
+        { name: "Jira", level: 75 }
       ]
     },
     {
-      title: "State Management",
-      icon: <Layers className="w-6 h-6" />,
+      title: "DevOps & Deployment",
+      icon: <Server className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "Redux", icon: null, level: 80 },
-        { name: "Context API", icon: null, level: 85 }
+        { name: "Nginx", level: 80 },
+        { name: "Linux", level: 75 },
+        { name: "Deployment", level: 80 },
+        { name: "SSL", level: 75 }
       ]
     },
     {
       title: "Soft Skills",
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-8 h-8 text-indigo-500" />,
       skills: [
-        { name: "Problem Solving", icon: null, level: 90 },
-        { name: "Team Collaboration", icon: null, level: 85 },
-        { name: "Data Structures & Algorithms", icon: null, level: 80 }
-      ]
-    } ,
-    
-    
-
-    {
-      title: "Deployment & DevOps",
-      icon: <Cloud className="w-6 h-6" />,
-      skills: [
-        { name: "Nginx Server", icon: "nginx", level: 80 },
-        { name: "Linux Administration", icon: "linux", level: 75 },
-        { name: "Docker Containerization", icon: "docker", level: 70 },
-        { name: "AWS Services", icon: "aws", level: 65 },
-        { name: "SSL/TLS Certificates", icon: null, level: 75 },
-        { name: "VPS Management", icon: null, level: 70 },
-        { name: "CI/CD Pipelines", icon: null, level: 65 },
-        { name: "Server Security", icon: null, level: 75 }
-      ]
-    },
-    {
-      title: "Infrastructure Security",
-      icon: <Shield className="w-6 h-6" />,
-      skills: [
-        { name: "SSH & Key Management", icon: null, level: 80 },
-        { name: "Firewall Configuration", icon: null, level: 75 },
-        { name: "Domain Management", icon: null, level: 85 },
-        { name: "Load Balancing", icon: null, level: 70 }
+        { name: "Data Structures & Algorithms", level: 80 },
+        { name: "Problem Solving", level: 90 },
+        { name: "Team Collaboration", level: 85 }
       ]
     }
-
-
-
-
-
   ];
 
-  const filteredSkills = activeCategory === 'All' 
-    ? skillCategories 
+  const filteredSkills = activeCategory === 'All'
+    ? skillCategories
     : skillCategories.filter(category => category.title === activeCategory);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 relative" id='skills'>
-      {/* Animated Background */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        className="absolute inset-0 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 opacity-30"
-        style={{ 
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%)',
-          zIndex: -1 
-        }}
-      />
-
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold mb-12 text-center text-gray-800"
-      >
-        My Skills Landscape
-      </motion.h2>
-
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {['All', ...skillCategories.map(c => c.title)].map((category) => (
-          <motion.button
-            key={category}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-              activeCategory === category 
-                ? 'bg-blue-500 text-white shadow-lg' 
-                : 'bg-gray-200 text-gray-700 hover:bg-blue-100'
-            }`}
-          >
-            {category}
-          </motion.button>
-        ))}
+    <section id="skills" className="py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
+      {/* Animated Background Circles */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000" />
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredSkills.map((category, idx) => (
-          <motion.div
-            key={category.title}
-            initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: idx * 0.2 }}
-            className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              {category.icon}
-              <h3 className="text-2xl font-semibold text-gray-800">{category.title}</h3>
-            </div>
-            
-            <div className="space-y-4">
-              {category.skills.map((skill, skillIdx) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: skillIdx * 0.1 }}
-                  className="relative"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    {skill.icon && techIcons[skill.icon]}
-                    <span className="font-medium text-gray-700">{skill.name}</span>
-                  </div>
-                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: skillIdx * 0.1 }}
-                      className="h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-5xl font-extrabold text-gray-900 tracking-tight">
+            My Technical Arsenal
+          </h2>
+          <div className="mt-3 h-1 w-32 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full" />
+          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+            A showcase of my expertise in modern web development, DevOps, and problem-solving skills.
+          </p>
+        </motion.div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {['All', ...skillCategories.map(c => c.title)].map((category) => (
+            <motion.button
+              key={category}
+              whileHover={{ scale: 1.1, boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)' }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
+                activeCategory === category
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-indigo-100 shadow-md'
+              }`}
+            >
+              {category}
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredSkills.map((category, idx) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.2 }}
+              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              style={{ backdropFilter: 'blur(10px)', background: 'rgba(255, 255, 255, 0.9)' }}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                {category.icon}
+                <h3 className="text-2xl font-semibold text-gray-900">{category.title}</h3>
+              </div>
+              <div className="space-y-6">
+                {category.skills.map((skill, skillIdx) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: skillIdx * 0.1 }}
+                    className="flex items-center gap-4"
+                  >
+                    {/* Circular Progress Ring */}
+                    <div className="relative w-12 h-12">
+                      <svg className="w-full h-full" viewBox="0 0 36 36">
+                        <path
+                          d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="#e5e7eb"
+                          strokeWidth="3"
+                        />
+                        <motion.path
+                          d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="url(#gradient)"
+                          strokeWidth="3"
+                          strokeDasharray={`${skill.level}, 100`}
+                          initial={{ strokeDasharray: '0, 100' }}
+                          animate={{ strokeDasharray: `${skill.level}, 100` }}
+                          transition={{ duration: 1, delay: skillIdx * 0.1 }}
+                        />
+                        <defs>
+                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#4f46e5" />
+                            <stop offset="100%" stopColor="#7c3aed" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-gray-700">
+                        {skill.level}%
+                      </div>
+                    </div>
+                    <span className="font-medium text-gray-800">{skill.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
+
+
+
+
+
 
 
 
