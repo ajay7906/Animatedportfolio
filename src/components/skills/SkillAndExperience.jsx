@@ -39,6 +39,8 @@ import {
   
   
 } from 'lucide-react';
+import SkillsSectionFile from '../skillsfile/SkillSectionFile';
+import ProjectsSectionFile from '../project/ProjectSectionFile';
 
 // Comprehensive technology icons mapping
 const techIcons = {
@@ -76,6 +78,21 @@ const techIcons = {
 
   
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -498,10 +515,12 @@ const ProjectsSection = () => {
 
 const Portfolio = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <SkillsSection />
-      <div className="my-16" />
-      <ProjectsSection />
+    <div className="min-h-screen bg-gray-50 ">
+      {/* <SkillsSection />
+      <div className="my-16" /> */}
+      <SkillsSectionFile/>
+      {/* <ProjectsSection /> */}
+      <ProjectsSectionFile/>
     </div>
   );
 };

@@ -11,6 +11,10 @@ import {
   ArrowUp,
   ExternalLink
 } from 'lucide-react';
+import ContactSectionFile from '../contact/ContactSectionFile';
+
+
+
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -355,7 +359,8 @@ const Footer = () => {
 const ContactAndFooter = () => {
   return (
     <>
-      <ContactSection />
+      {/* <ContactSection /> */}
+      <ContactSectionFile/>
       <Footer />
     </>
   );
