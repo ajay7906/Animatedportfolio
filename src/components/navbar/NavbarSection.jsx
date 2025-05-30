@@ -443,6 +443,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Sparkles, Zap, Code, Coffee } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -476,7 +477,7 @@ const Navbar = () => {
     { title: 'Contact', href: '#contact', icon: '📬' },
     { 
       title: 'Blog', 
-      href: '#blog', 
+      href: '/blogs', 
       icon: '✍️',
       isComingSoon: true,
       specialBadge: true
@@ -625,12 +626,12 @@ const Navbar = () => {
               <div className="ml-10 flex items-center space-x-8">
                 {menuItems.map((item, index) => (
                   <div key={item.title} className="relative group">
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className={`relative flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-all duration-300
                                 font-medium tracking-wide group-hover:scale-110 transform
                                 ${item.specialBadge ? 'pr-2' : ''}`}
-                    >
+                     >
                       <span className="text-sm opacity-70 group-hover:opacity-100 transition-opacity">
                         {item.icon}
                       </span>
@@ -647,7 +648,7 @@ const Navbar = () => {
                                         shadow-[0_0_6px_rgba(251,146,60,0.8)]" />
                         </div>
                       )}
-                    </a>
+                    </Link>
 
                     {/* Enhanced Coming Soon Tooltip */}
                     {item.isComingSoon && <BlogComingSoon />}
@@ -682,8 +683,8 @@ const Navbar = () => {
           <div className="px-4 py-4 space-y-2">
             {menuItems.map((item, index) => (
               <div key={item.title} className="relative group">
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-cyan-400 
                            hover:bg-gray-800/50 rounded-xl transition-all duration-300 group-hover:pl-6"
                   onClick={() => setIsOpen(false)}
@@ -697,7 +698,7 @@ const Navbar = () => {
                       <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full animate-pulse" />
                     </div>
                   )}
-                </a>
+                </Link>
                 
                 {/* Mobile Coming Soon */}
                 {item.isComingSoon && <BlogComingSoon isMobile={true} />}
