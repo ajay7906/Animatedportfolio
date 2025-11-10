@@ -230,15 +230,15 @@ const Footer = () => {
         { name: "Contact", href: "#contact" }
       ]
     },
-    {
-      title: "Projects",
-      links: [
-        { name: "AI Website Builder", href: "#" },
-        { name: "Story Sharing App", href: "https://swip-tory-six.vercel.app/" },
-        { name: "E-commerce App", href: "https://65dcca3e9b6a8806754a8780--beautiful-pixie-3874.netlify.app/" },
-        { name: "Quick Search Extension", href: "#" }
-      ]
-    }
+    // {
+    //   title: "Projects",
+    //   links: [
+    //     { name: "AI Website Builder", href: "#" },
+    //     { name: "Story Sharing App", href: "https://swip-tory-six.vercel.app/" },
+    //     { name: "E-commerce App", href: "https://65dcca3e9b6a8806754a8780--beautiful-pixie-3874.netlify.app/" },
+    //     { name: "Quick Search Extension", href: "#" }
+    //   ]
+    // }
   ];
 
   const socialLinks = [
