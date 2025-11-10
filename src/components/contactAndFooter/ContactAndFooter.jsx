@@ -244,7 +244,7 @@ const Footer = () => {
   const socialLinks = [
     { name: "GitHub", icon: <Github />, href: "https://github.com/ajay7906" },
     { name: "LinkedIn", icon: <Linkedin />, href: "https://linkedin.com/in/ajaykumarcse" },
-    { name: "Twitter", icon: <Twitter />, href: "#" }
+    { name: "Twitter", icon: <Twitter />, href: "https://x.com/Ajay_Saini_7906" }
   ];
 
   return (
