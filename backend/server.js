@@ -5,6 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const morgan = require('morgan');
 // const errorHandler = require('./middlewares/error');
 
 
@@ -18,6 +19,7 @@ const app = express();
 require('./config/db');
 
 // Middlewares
+app.use(morgan());
 app.use(helmet());
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
