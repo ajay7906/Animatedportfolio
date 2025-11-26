@@ -1,7 +1,7 @@
 
-const { create } = require("zustand");
-const { persist } = require("zustand/middleware");
-const { Login } = require("../api/userApi");
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { Login } from "../api/userApi";
 
 
 const useAuthStore = create(
@@ -12,9 +12,9 @@ const useAuthStore = create(
             setUser : (user) => set({ user }),
             setToken : (token) => set({ token }),
 
-            login: async (email, password) => {
+            login: async (email, password, rememberMe) => {
                 // Implement login logic here
-                const response = await Login({ email, password });
+                const response = await Login({ email, password, rememberMe });
                 if(!response.success){
                     return response;
                 }
@@ -26,3 +26,5 @@ const useAuthStore = create(
         })
     )
 )
+
+export default useAuthStore;

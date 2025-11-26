@@ -15,9 +15,11 @@ import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/dashboard/AdminDashboard'
 import Tutorials from './pages/Tutorials'
 import TutorialPage from './pages/TutorialPage'
-
+import Login from './pages/Login'
 function App() {
   const [count, setCount] = useState(0)
+
+// import { useState } from "react"
 
   return (
     <Router>
@@ -39,6 +41,7 @@ function App() {
         <Route path='/adminDashboard' element={<AdminDashboard/>}/>
         <Route path="/tutorials" element={<Tutorials/>} />
         <Route path="/tutorials/:id" element={<TutorialPage/>} />
+        <Route path='/login' element={<Login/>}/>
         {/* Add more routes as needed */}
       </Routes>
     </Router>
@@ -46,3 +49,15 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
