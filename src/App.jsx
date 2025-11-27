@@ -12,7 +12,7 @@ import SkillAndExperience from './components/skills/SkillAndExperience'
 import ContactAndFooter from './components/contactAndFooter/ContactAndFooter'
 import Blog from './pages/BlogPages'
 import AdminLogin from './admin/AdminLogin'
-import AdminDashboard from './admin/dashboard/AdminDashboard'
+// import AdminDashboard from './admin/dashboard/AdminDashboard'
 import Tutorials from './pages/Tutorials'
 import TutorialPage from './pages/TutorialPage'
 import Login from './pages/Login'
@@ -38,7 +38,7 @@ function App() {
         {/* <Route path="/portfolio" element={<Portfolio/>}/> */}
         <Route path='/blogs' element={<Blog/>}/>
         <Route path='/adminLogin' element={<AdminLogin/>}/>
-        <Route path='/adminDashboard' element={<AdminDashboard/>}/>
+        {/* <Route path='/adminDashboard' element={<AdminDashboard/>}/> */}
         <Route path="/tutorials" element={<Tutorials/>} />
         <Route path="/tutorials/:id" element={<TutorialPage/>} />
         <Route path='/login' element={<Login/>}/>
