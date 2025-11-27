@@ -8,7 +8,8 @@ function Login() {
     password: '',
     });
     const [rememberMe, setRememberMe] = useState(false);
-
+     const setAuth = useAuthStore(state => state.setAuth);
+    
     const onhandleChange = (e) => {
         setFormData({
             ...formData,
@@ -33,6 +34,7 @@ function Login() {
             alert(response.message);
         } else {
             alert("Login successful!");
+            setAuth(response.user, response.token);
             // Optional: Redirect to another page
             // window.location.href = "/dashboard";
         }

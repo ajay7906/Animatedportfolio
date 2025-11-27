@@ -11,3 +11,20 @@ export  const Login = async (userData) => {
         
     }
 }
+
+export const fetchMe = async (token) => {
+    try {
+        const response = await axios.get("http://localhost:4000/api/auth/me", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+
+        });
+        return response.data;
+        
+    } catch (error) {
+        console.error("Fetch user error:", error);
+        throw error;
+        
+    }
+}

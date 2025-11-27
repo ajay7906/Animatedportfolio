@@ -1,6 +1,6 @@
 
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -16,10 +16,17 @@ import AdminLogin from './admin/AdminLogin'
 import Tutorials from './pages/Tutorials'
 import TutorialPage from './pages/TutorialPage'
 import Login from './pages/Login'
+import BlogPostAdmin from './admin/post/PostBlog'
+import AdminDashboard from './admin/dashboard/AdminDashboard'
+import useAuthStore from './context/userContaxt'
 function App() {
   const [count, setCount] = useState(0)
+  const init = useAuthStore((state) => state.init);
 
-// import { useState } from "react"
+  useEffect(() => {
+    init();
+  }, [init]);
+
 
   return (
     <Router>
@@ -34,10 +41,11 @@ function App() {
           </>
         }/>
         
-        {/* Portfolio page route */}
-        {/* <Route path="/portfolio" element={<Portfolio/>}/> */}
+       
         <Route path='/blogs' element={<Blog/>}/>
         <Route path='/adminLogin' element={<AdminLogin/>}/>
+        <Route path='/admin' element={<AdminDashboard/>}/>
+        <Route path='/uploadBlog' element={<BlogPostAdmin/>}/>
         {/* <Route path='/adminDashboard' element={<AdminDashboard/>}/> */}
         <Route path="/tutorials" element={<Tutorials/>} />
         <Route path="/tutorials/:id" element={<TutorialPage/>} />
