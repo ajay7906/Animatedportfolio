@@ -23,9 +23,9 @@ function App() {
   const [count, setCount] = useState(0)
   const init = useAuthStore((state) => state.init);
 
-  useEffect(() => {
-    init();
-  }, [init]);
+  // useEffect(() => {
+  //   init();
+  // }, [init]);
 
 
   return (
