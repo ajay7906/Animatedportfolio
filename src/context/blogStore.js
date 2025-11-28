@@ -31,3 +31,5 @@ const useBlogStore = create((set, get) => ({
         }
     }
 }))
+
+export default useBlogStore;

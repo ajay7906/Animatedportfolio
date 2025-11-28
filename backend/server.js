@@ -37,6 +37,7 @@ app.use(limiter);
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/blogs', require('./routes/blog'));
 // app.use('/api/admin', require('./routes/admin'));
 
 // Error handling
