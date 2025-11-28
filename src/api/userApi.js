@@ -20,6 +20,7 @@ export const fetchMe = async (token) => {
             }
 
         });
+        console.log("FetchMe response:", response.data);
         return response.data;
         
     } catch (error) {

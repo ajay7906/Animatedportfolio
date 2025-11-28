@@ -1,14 +1,16 @@
 
 import { useState } from "react";
 import useAuthStore from "../context/userContaxt";
+import { useNavigate } from "react-router-dom";
 function Login() {
     const login = useAuthStore((state) => state.login);
     const [formData, setFormData] = useState({
     email: '',
     password: '',
     });
+    const navigate = useNavigate();
     const [rememberMe, setRememberMe] = useState(false);
-     const setAuth = useAuthStore(state => state.setAuth);
+    //  const setAuth = useAuthStore(state => state.setAuth);
     
     const onhandleChange = (e) => {
         setFormData({
@@ -34,7 +36,8 @@ function Login() {
             alert(response.message);
         } else {
             alert("Login successful!");
-            setAuth(response.user, response.token);
+            // setAuth(response.user, response.token);
+            navigate('/admin');
             // Optional: Redirect to another page
             // window.location.href = "/dashboard";
         }

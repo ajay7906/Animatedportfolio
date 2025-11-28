@@ -115,3 +115,22 @@ exports.logout = async (req, res, next) => {
     next(err);
   }
 };
+
+
+exports.getMe = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findById(userId).select('-password -refreshToken');
+    if (!user) {
+      return res.status(404).json({ success: false, error: 'User not found' });
+    }
+
+    res.status(200).json({ success: true, user });
+    
+
+    
+  } catch (error) {
+    res.status(500).json({ success: false, error: `Server Error ${error.message}` });
+    
+  }
+}
