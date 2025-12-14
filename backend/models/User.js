@@ -22,11 +22,11 @@ const UserSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user'
   },
-  name: {
-    type: String,
-    required: [true, 'Please add a name'],
-    trim: true
-  },
+  // name: {
+  //   type: String,
+  //   required: [true, 'Please add a name'],
+  //   trim: true
+  // },
   refreshToken:{
     type: String,
     default: null
