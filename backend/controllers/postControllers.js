@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const Post = require('../models/Post');
 const sanitizeHtml = require('sanitize-html'); // optional, npm i sanitize-html
+const { TableOfContents } = require('lucide-react');
+const { uploadBufferToCloudinary } = require('../utils/cloudinary');
 
 // Create a new post
 exports.createPost = async (req, res) => {
@@ -10,26 +12,29 @@ exports.createPost = async (req, res) => {
     if (!userId) {
       return res.status(401).json({ success: false, error: 'User not authenticated' });
     }
+    console.log('createPost called by user:', req.body);
 
-    const { title, body, excerpt, tags, published, coverImageUrl } = req.body;
+    const { title, content, excerpt, tags, published } = req.body;
 
     // Basic validation (expand with Joi/express-validator)
-    if (!title || !title.trim() || !body || !body.trim()) {
-      return res.status(400).json({ success: false, error: 'Title and body are required' });
+    if (!title || !title.trim() || !content || !content.trim()) {
+      return res.status(400).json({ success: false, error: 'Title and content are required' });
+    }
+   let coverImageUrl = null;
+    if(req.file && req.file.buffer) {
+      const uploadResult = await uploadBufferToCloudinary(req.file.buffer);
+      console.log('Cloudinary upload result:', uploadResult);
+      coverImageUrl = uploadResult.secure_url;
     }
 
-    // Normalize tags: accept array or comma-separated string
-    let normalizedTags = [];
-    if (Array.isArray(tags)) {
-      normalizedTags = tags.map(t => String(t).trim()).filter(Boolean);
-    } else if (typeof tags === 'string' && tags.trim()) {
-      normalizedTags = tags.split(',').map(t => t.trim()).filter(Boolean);
-    }
+
+   
+    const parsedTags = Array.isArray(tags) ? tags : JSON.parse(tags);
 
     // Optionally sanitize excerpt / body if you allow HTML
     const safeExcerpt = excerpt ? sanitizeHtml(excerpt, { allowedTags: [], allowedAttributes: {} }) : undefined;
     // If you allow certain HTML tags in body, configure sanitizeHtml accordingly
-    const safeBody = sanitizeHtml(body, {
+    const safeBody = sanitizeHtml(content, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['h1','h2','img']), // example
       allowedAttributes: {
         a: ['href', 'name', 'target'],
@@ -39,9 +44,9 @@ exports.createPost = async (req, res) => {
 
     const newPost = new Post({
       title: title.trim(),
-      body: safeBody,
+      content: safeBody,
       excerpt: safeExcerpt,
-      tags: normalizedTags,
+      tags: parsedTags,
       published: published !== undefined ? !!published : true,
       coverImageUrl: coverImageUrl || null,
       author: userId
@@ -64,6 +69,17 @@ exports.createPost = async (req, res) => {
     }
 
     console.error('createPost error:', err);
-    return res.status(500).json({ success: false, error: 'Server Error' });
+    return res.status(500).json({ success: false, error: `Server Error ${err.message}` });
   }
 };
+
+exports.getAllPosts = async (req, res) => {
+  try{
+    const posts = await Post.find().populate('author', 'name email');
+    return res.status(200).json({ success: true, data: posts });
+
+  } catch (error) {
+    console.error('getAllPosts error:', error);
+    return res.status(500).json({ success: false, error: `Server Error ${error.message}` });
+  }
+}
